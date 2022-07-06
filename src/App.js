@@ -1,18 +1,19 @@
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import StartComp from "./Components/Start"
+import './Styles/style.css'
+import Products from './Components/Products'
 
-function App() {
-  return (
-    <div>
-      
-      <BrowserRouter>
+const App = ()=>
+  (
+    <BrowserRouter>
       <Routes>
-        <Route path="/se" element={<StartComp/>}/>
+        <Route path="/" element={<StartComp/>}/>
+        <Route path="*" element={"Error 404 No se ah encontrado la pagina"}/>
+        <Route path="/productos/:name" element={<Products/>}/>
       </Routes>
-      </BrowserRouter>
-    </div>
+    </BrowserRouter>
   );
-}
+
 
 export default App;
