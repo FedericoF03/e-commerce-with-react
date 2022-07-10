@@ -1,19 +1,19 @@
 import React, {useState, useEffect} from "react";
-import ProductsCards from "./ProductsCards";
-import { BrowserRouter, NavLink } from "react-router-dom";
+import ThreeCards from "./ThreeCards";
+import { NavLink } from "react-router-dom";
 
 const Cards=()=>{
-    const [urls, setUrls] = useState([])
-    const [loading, setLoading] = useState(false)
+    const urlBasic = "https://codealo-commerce-cms.onrender.com";
+    const [urls, setUrls] = useState([]);
+    const [loading, setLoading] = useState(false);
      
         useEffect(()=>{
         const ApiProduct = async(param)=>{
-            const url = param
-            const urlBasic = "https://codealo-commerce-cms.onrender.com"
+            const url = param;
             let count = 1;
             const beforeN = [];     
             while (count <= 3 && !loading) {
-                count++ 
+                count++;
                 let json = await fetch(url);
                 let res = await json.json();
                 
@@ -31,16 +31,16 @@ const Cards=()=>{
                         img: urlBasic + res[numberR].image.url,
                         price: res[numberR].price,
                         description: res[numberR].description,
-                    }
-    
-                    
+                    };
+
                     setUrls(urls=>[...urls, app]);
-                } else count--
+
+                } else count--;
             }
-            if(count >= 2) setLoading(true)
+            if(count >= 2) setLoading(true);
         }
-        ApiProduct('https://codealo-commerce-cms.onrender.com/products')
-    }, [])
+        ApiProduct(`${urlBasic}/products`);
+    }, []);
     
     return(
         <div className="conteiner__card__box">
@@ -48,9 +48,14 @@ const Cards=()=>{
                 {urls.length != 3 ? 
                 (<h3>Cargando..</h3>):
                 (urls.map((el)=>(
-                <ProductsCards key={el.id} description={el.description} slug={el.slug} name={el.name} img={el.img} price={el.price}/>
-                    ))
-                )}            
+                <ThreeCards 
+                key={el.id} 
+                description={el.description} 
+                slug={el.slug} name={el.name} 
+                img={el.img} 
+                price={el.price}/>
+                )))
+                }            
             </div>
             {
             urls.length != 3 ? 
@@ -58,7 +63,7 @@ const Cards=()=>{
             (<NavLink className="button__start" to="productos">Productos</NavLink>)
             }
         </div>               
-    )
+    );
 };
     
 export default Cards
