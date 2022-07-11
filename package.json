@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "e-commerce",
   "version": "0.1.0",
   "private": true,
@@ -37,13 +36,4 @@
       "last 1 safari version"
     ]
   }
-=======
-  "name": "web-app-template",
-  "version": "1.0.0",
-  "description": "Template para proyectos de frontend dentro de https://codealo.dev",
-  "repository": "https://github.com/Codealo-Dev/web-app-template.git",
-  "author": "Codealo <johnnie@codealo.dev>",
-  "license": "MIT",
-  "private": false
->>>>>>> 2b8c86ae6730c6d1a03c7b11d43b8872c141bf42
 }
