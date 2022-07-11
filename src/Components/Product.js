@@ -14,6 +14,10 @@ const Product = ()=>{
     let navigate = useNavigate();
     
     useEffect(()=>{
+
+        if(!window.localStorage.getItem("USER_AUTH")) {
+            navigate("/login");
+        }
         
         const apiProduct = async()=>{
             
@@ -131,7 +135,7 @@ const Product = ()=>{
             <NavBar/>{
             product.map(el=>
                 <div className='flex conteiner__box__product'>
-                    <div className='products' key={el.id + "35"}>
+                    <div className='products little' key={el.id + "35"}>
                         <img  
                         src={el.img}
                         alt={el.name + " img"}

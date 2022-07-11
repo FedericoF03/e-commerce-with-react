@@ -56,7 +56,7 @@ const Products = ()=>{
     return(
         <div>
             <NavBar/>
-            <div>{
+            <div className='flex categories'>{
             products2.map(el=>(
                 <button onClick={()=>{navigate(`categories/${el.slug}`)}}>{el.name}</button>
             ))}</div>

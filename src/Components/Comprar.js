@@ -58,18 +58,9 @@ import Footer from "./Footer";
     
     return(
         <div>
-            <NavBar/>{products.length  !== large ? 
-            ("cargando..."): 
-            (products.map(el=>(
-                <div className='flex conteiner__box__product'> 
-                <div className='products' key={el.id} slug={el.slug}>
-                    <img src={el.img}></img>
-                    <figcaption>{el.name}</figcaption>
-                    <h2>{el.price}</h2>
-                    <p>{el.cant}</p>
-                </div>
-            </div>
-            )))}<button onClick={async()=>
+            <NavBar/>
+            <div className="flex categories-test85 comprar-test1">
+            <button className="button-fix" onClick={async()=>
                 {
                     await createOrden()
                     await window.localStorage.removeItem("id-cart")
@@ -78,7 +69,20 @@ import Footer from "./Footer";
                         navigate("/ordenes")
                     }, 3000)
                 }
-            }>Procesar compra</button>
+            }>Procesar compra</button>{
+            products.length  !== large ? 
+            (<div>{!window.localStorage.getItem("id-cart")? "No hay compras pendientes": "Cargando..."}</div>): 
+            (products.map(el=>(
+                <div className='flex conteiner__box__product'> 
+                <div className='products' key={el.id} slug={el.slug}>
+                    <img src={el.img}></img>
+                    <figcaption>{el.name}</figcaption>
+                    <h2>{Number.parseFloat(el.price * el.cant).toFixed(2)}</h2>
+                    <p>{el.cant}</p>
+                </div>
+            </div>
+            )))
+            }</div>
             <Footer/>
         </div>
     );

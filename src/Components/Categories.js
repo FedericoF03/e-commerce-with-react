@@ -10,25 +10,9 @@ const Categories = ()=>{
     let navigate = useNavigate()
     let urlBasic = "https://codealo-commerce-cms.onrender.com";
     const [products, setProducts] = useState([]);
-     const [products2, setProducts2] = useState([]);
+    const [products2, setProducts2] = useState([]);
     const [loading, setLoading] = useState(false);
-
-    const apiProductChange = async ()=>{
-            
-        let json = await fetch(`${urlBasic}/categories/${urlName.name}`);
-        let res = await json.json();
-
-            let app = {
-                id: res.id,
-                name: res.name,
-                link: res.slug,
-                products: [...res.products]
-            };
-            setLoading(true); 
-            setProducts([app]);
-            
-                       
-    }
+    const [loading2, setLoading2] = useState(false);
 
         const categories = async()=>{
             let json = await fetch("https://codealo-commerce-cms.onrender.com/categories")
@@ -45,19 +29,37 @@ const Categories = ()=>{
             
         }
         if(!loading)categories()
-        if(!loading)apiProductChange();
 
+        useEffect(()=>{
+            const apiProductChange = async ()=>{
+                let json = await fetch(`${urlBasic}/categories/${urlName.name}`);
+                let res = await json.json();
+        
+                    let app = {
+                        id: res.id,
+                        name: res.name,
+                        link: res.slug,
+                        products: [...res.products]
+                    };
+                    setLoading(true); 
+                    setProducts([app]);
+                               
+            }
+            apiProductChange()
+        }, [loading2])
 
     return(
         <>
         <NavBar/>
-            <div>{
+            <div className='flex categories'>{
                 products2.map(el=>(
                     <button onClick={()=>{
                         navigate(`/productos/categories/${el.slug}`)
-                        apiProductChange()
+                        setLoading2(false)
+                        setTimeout(()=>setLoading2(true), 0)
                     }}>{el.name}</button>))
                 }</div>
+                <div className='categories-test'>
                 <div className="flex products__conteiner">{
                    products.map(el=>(
                         el.products.map(el=>(
@@ -74,6 +76,7 @@ const Categories = ()=>{
                         ))
                     ))
             }</div>
+            </div>
         <Footer/>
         </>
     )

@@ -180,6 +180,7 @@ form {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .products_ordens {
@@ -188,10 +189,48 @@ form {
     align-items: center;
     gap: 20px;
     margin: 10px 0;
-    overflow-x: auto
+    overflow-x: auto;
+    
 }
 
 .items-orden {
     background-color: azure;
     
+}
+
+.categories {
+    justify-content: center;
+    height: 5vh;
+}
+
+.categories > button {
+    margin: 5px 5px;
+}
+
+.categories-test {
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.categories-test85 {
+    height: 85vh;
+    overflow-y: auto;
+}
+.comprar-test {
+    justify-content: center;
+    align-items: center;
+}
+
+.comprar-test1 {
+    justify-content: center;
+    align-items: center;
+}
+
+.button-fix {
+    position: fixed;
+    right: 10px;
+}
+
+.little {
+    width: 40vw;
 }

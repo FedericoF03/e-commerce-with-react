@@ -46,12 +46,11 @@ import Footer from "./Footer"
                 <div className='flex conteiner__box__product'>
                     <div className='products_ordens' key={el.id}>
                         <h2>{el.numeroDeCompra}</h2>
-                        <p>{el.total}</p>
-                        <p>{el.total_no_tax}</p>
+                        <p>{el.total$}</p>
                         {el.products.map(elSub=>(
                             <div className="items-orden"  key={elSub.product.id} slug={elSub.product.slug}>
                             <p>{elSub.product.title}</p>
-                            <p>{elSub.product.price}</p>
+                            <p>{Number.parseFloat(elSub.product.price * elSub.quantity).toFixed(2)}</p>
                             <img src={urlBasic + elSub.product.image.url}></img>
                             <p>{elSub.quantity}</p> 
                            </div>
