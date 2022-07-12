@@ -65,7 +65,7 @@ const Login = ()=>{
     return(
         <div>
             <NavBar/>
-            <div className="register__conteiner">
+            <div>
                 <form>
                     <p>Iniciar Sesion!</p>
                     <input

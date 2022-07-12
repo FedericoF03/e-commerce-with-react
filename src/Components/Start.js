@@ -6,11 +6,11 @@ import Cards from './Cards';
 export default function StartComp(){
     return(
         <>
-            <NavBar/>
-            <div className='start-comp'>
+            <NavBar/>{
+            <div className='container__cards-Route'>
                 <Cards/>  
             </div> 
-            <Footer/>
+            }<Footer/>
         </>
     );
 };

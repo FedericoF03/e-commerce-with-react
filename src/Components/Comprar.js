@@ -73,8 +73,10 @@ import Footer from "./Footer";
             products.length  !== large ? 
             (<div>{!window.localStorage.getItem("id-cart")? "No hay compras pendientes": "Cargando..."}</div>): 
             (products.map(el=>(
-                <div className='flex conteiner__box__product'> 
-                <div className='products' key={el.id} slug={el.slug}>
+                <div> 
+                <div 
+                key={el.id} 
+                slug={el.slug}>
                     <img src={el.img}></img>
                     <figcaption>{el.name}</figcaption>
                     <h2>{Number.parseFloat(el.price * el.cant).toFixed(2)}</h2>

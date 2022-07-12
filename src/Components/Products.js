@@ -54,28 +54,27 @@ const Products = ()=>{
     }, []);
     
     return(
-        <div>
+        <>   
             <NavBar/>
-            <div className='flex categories'>{
-            products2.map(el=>(
-                <button onClick={()=>{navigate(`categories/${el.slug}`)}}>{el.name}</button>
-            ))}</div>
-            <div className="flex products__conteiner">{
-            products.map(el=>(
-                <div 
-                key={el.id.toString() + "34"} 
-                className="card__products" >
-                    <NavLink to={"/productos/" + el.link}>
-                        <img src={urlBasic + el.img}></img>
+            <div className="container__products">
+                <div className="buttons__products__categories">{ products2.map(el=>(
+                        <button onClick={()=>{navigate(`categories/${el.slug}`)}}>{el.name}</button>
+                        ))
+                }</div>
+                <div className="box__products">{ products.map(el=>(
+                    <div className="products" key={el.id.toString() + "34"}>
+                        <NavLink to={"/productos/" + el.link}>
+                        <img className="products--img" src={urlBasic + el.img}></img>
                         <figcaption>{el.name}</figcaption>
                         <h2>{el.price}</h2>
-                        <p>{el.description}</p>
-                    </NavLink>
-                </div>
-                ))
-            }</div>
+                        <p className="products--description">{el.description}</p>
+                        </NavLink>
+                    </div>
+                    ))
+                }</div>
+            </div>
             <Footer/>
-        </div>
+        </>
     );
 };
 

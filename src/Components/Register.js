@@ -57,7 +57,7 @@ const Register = ()=>{
     return(
         <div>
             <NavBar/>
-            <div className="register__conteiner">
+            <div>
                 <form>
                     <p>Registrate!</p>
                     <input

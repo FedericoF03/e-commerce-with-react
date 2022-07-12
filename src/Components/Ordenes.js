@@ -43,12 +43,12 @@ import Footer from "./Footer"
     return(
         <div>
             <NavBar/>{ordenes.map(el=>(
-                <div className='flex conteiner__box__product'>
-                    <div className='products_ordens' key={el.id}>
+                <div>
+                    <div key={el.id}>
                         <h2>{el.numeroDeCompra}</h2>
                         <p>{el.total$}</p>
                         {el.products.map(elSub=>(
-                            <div className="items-orden"  key={elSub.product.id} slug={elSub.product.slug}>
+                            <div key={elSub.product.id} slug={elSub.product.slug}>
                             <p>{elSub.product.title}</p>
                             <p>{Number.parseFloat(elSub.product.price * elSub.quantity).toFixed(2)}</p>
                             <img src={urlBasic + elSub.product.image.url}></img>

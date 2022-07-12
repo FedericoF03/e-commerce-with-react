@@ -43,26 +43,29 @@ const Cards=()=>{
     }, []);
     
     return(
-        <div className="conteiner__card__box">
-            <div className="cards__box">     
-                {urls.length != 3 ? 
-                (<h3>Cargando..</h3>):
-                (urls.map((el)=>(
-                <ThreeCards 
-                key={el.id} 
-                description={el.description} 
-                slug={el.slug} name={el.name} 
-                img={el.img} 
-                price={el.price}/>
-                )))
-                }            
+        <>{
+            urls.length !== 3
+            ?<div className="container__charge">
+                <p className="charge">Cargando</p>
             </div>
-            {
-            urls.length != 3 ? 
-            (""):
-            (<NavLink className="button__start" to="productos">Productos</NavLink>)
-            }
-        </div>               
+            :<div className="flex container__cards">
+                <div className="flex cards__box">
+                    {    
+                    urls.map((el)=>(
+                    <ThreeCards 
+                    key={el.id} 
+                    description={el.description} 
+                    slug={el.slug} name={el.name} 
+                    img={el.img} 
+                    price={el.price}/>
+                    ))
+                    }         
+                </div>
+                <div className="container__cards--link">
+                    <NavLink className="cards--link" to="productos">Productos</NavLink>
+                </div>
+            </div>   
+        }</>            
     );
 };
     

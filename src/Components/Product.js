@@ -134,8 +134,8 @@ const Product = ()=>{
         <div>
             <NavBar/>{
             product.map(el=>
-                <div className='flex conteiner__box__product'>
-                    <div className='products little' key={el.id + "35"}>
+                <div>
+                    <div key={el.id + "35"}>
                         <img  
                         src={el.img}
                         alt={el.name + " img"}
@@ -148,7 +148,7 @@ const Product = ()=>{
                         {
                             setCount(count<1? count = 0:count-1);
                         }}>-</button>
-                    <p readOnly className='count'>{count}</p>
+                    <p readOnly>{count}</p>
                     <button onClick={()=>
                     {
                         setCount(count+1);

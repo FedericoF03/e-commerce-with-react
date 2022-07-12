@@ -2,14 +2,15 @@ import { NavLink } from "react-router-dom";
 
 const ThreeCards = ({img, name, description, price, slug})=>
     (
-        <div className="card">
+        <div className="three__cards__box">
             <NavLink to={"/productos/" + slug}>
-                <img 
+                <img
+                className="three__cards--img" 
                 src={img} 
                 alt={"Product-img"}></img>
                 <figcaption>{name}</figcaption>
                 <h2>{price}</h2>
-                <p>{description}</p>
+                <p className="three__cards__text--description">{description}</p>
             </NavLink>
         </div>
     );
