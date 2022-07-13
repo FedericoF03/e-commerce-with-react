@@ -24,7 +24,6 @@ import Footer from "./Footer"
             })
             let res = await json.json()
             setLoading(true)
-            console.log(res)
             res.forEach(el=>{
                 let app = 
                 {
@@ -42,22 +41,27 @@ import Footer from "./Footer"
   
     return(
         <div>
-            <NavBar/>{ordenes.map(el=>(
-                <div>
-                    <div key={el.id}>
-                        <h2>{el.numeroDeCompra}</h2>
-                        <p>{el.total$}</p>
+            <NavBar/>
+            <div className="container__ordenes">{
+                ordenes.map(el=>(
+                <div className="box__ordenes">
+                    <div className="box_list" key={el.id}>
+                        <div className="box_orden_list">
+                            <h2>{el.numeroDeCompra}</h2>
+                            <p className="price">{"$" + el.total$}</p>
+                        </div>
                         {el.products.map(elSub=>(
-                            <div key={elSub.product.id} slug={elSub.product.slug}>
+                        <div className="card__orden"  key={elSub.product.id} slug={elSub.product.slug}>
                             <p>{elSub.product.title}</p>
-                            <p>{Number.parseFloat(elSub.product.price * elSub.quantity).toFixed(2)}</p>
-                            <img src={urlBasic + elSub.product.image.url}></img>
-                            <p>{elSub.quantity}</p> 
-                           </div>
+                            <p>{"$" + Number.parseFloat(elSub.product.price * elSub.quantity).toFixed(2)}</p>
+                            <img className="orden__img" src={urlBasic + elSub.product.image.url}></img>
+                            <p>{elSub.quantity + " Unidades"}</p> 
+                        </div>
                         ))}
                     </div>
                 </div>)) 
-                }<Footer/>
+            }</div>
+            <Footer/>
         </div>
     )
 }

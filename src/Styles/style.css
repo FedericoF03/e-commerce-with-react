@@ -27,6 +27,17 @@ a {
     gap: 20px;
 }
 
+.session__close {
+    background-color: transparent;
+    border: none;
+    color: rgb(214, 40, 16);
+    font-size: 1.5em;
+}
+
+.session__close:hover {
+    color: rgb(37, 77, 112);
+}
+
 /*Charge */
 
 .container__charge{
@@ -190,6 +201,57 @@ background-color: aqua;
     padding: 0 20px;
 }
 
+/* categories */
+
+.container__categories {
+    height: 85vh;
+    overflow-y: auto;
+    background-color: aqua;
+}
+
+.categories__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5vh;
+    gap: 25px;
+}
+
+.categories__products {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    margin: 30px 0;
+}
+
+.categories__box__cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50vw;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.categories__cards {
+    width: 200px;
+}
+
+.categories__cards:hover {
+    width: 200px;
+    background-color: #ffffff91;
+}
+
+.categories__cards--img {
+    width: 200px;
+
+}
+
+.categories__cards--description {
+    min-width: 40px;
+    max-width: max-content
+}
 /* Footer */
 
 .footer {
@@ -200,9 +262,176 @@ background-color: aqua;
     align-items: center;
 }
 
+/*Compras*/
 
+.container__cart {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container__compras--void {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.compras--img {
+    width: 250px;
+}
+.box__compras__contents {
+    overflow-y: auto;
+    gap: 100px;
+}
+
+.box__compras__card {
+    gap: 50px;
+    display: flex;
+}
+
+/*Product */
+
+.container__product {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.box__product {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.box_product__box__buttons {
+    display: flex;
+    align-items: center;
+    border: 1px solid #b5b8bad6;
+    width: max-content;
+    height: max-content;
+    justify-content: space-between;
+    margin: 0 25px;
+    font-size: 6em;
+    
+}
+
+.box_product__box__buttons--left {
+    padding: 20px 25px;
+    margin-right: 25px;
+    background-color: whitesmoke;
+    border: 0.1px solid #494a4bd6;
+}
+
+.box_product__box__buttons--right {
+    background-color: whitesmoke;
+    padding: 20px 25px;
+    margin-left: 25px;
+    border: 0.1px solid #494a4bd6;
+}
+
+.box_product__box__buttons--both:hover {
+    background-color: rgb(175, 180, 180);
+    border: 1px solid #343435d6;
+}
+
+.box_product__box__buttons_shop {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+}
+
+/*register*/
+
+.container__register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 85vh;
+}
+
+.box__register {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    width: 30vw;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+}
+
+/*login*/
+
+.container__login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 85vh;
+}
+
+.box__login {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    width: 30vw;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+}
+
+/*ordenes*/
+
+.container__ordenes {
+    display: flex;
+    height: 85vh;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.box__ordenes {
+    display: flex;
+    text-align: center;
+}
+
+.box_list {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 5px 50px;
+}
+
+.box_orden_list {
+    display: flex;
+    min-width: 300px;
+    justify-content: space-between;
+}
+
+.card__orden {
+    width: max-content;
+    height: min-content;
+    background-color: aliceblue;
+}
+
+.price {
+    color: rgba(252, 56, 56, 0.774);
+    margin: 0 20px;
+    font-size: 3em;
+}
+
+.orden__img {
+    width: 200px;
+}
 /* comun class */
 
 .flex {
     display: flex;
+}
+
+.margin-0 {
+    margin: 0;
 }

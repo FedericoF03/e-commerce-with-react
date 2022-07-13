@@ -42,6 +42,7 @@ const Product = ()=>{
     
     useEffect(()=>{
         const verificar = async ()=>{
+            if(window.localStorage.getItem("id-cart")) {
             const urlBasic = `https://codealo-commerce-cms.onrender.com`;
             let keyCart = window.localStorage.getItem("id-cart");
             let jsonGet = await fetch(`${urlBasic}/carts/${keyCart}`);
@@ -49,12 +50,18 @@ const Product = ()=>{
             let array = [...resGet.products_in_cart];
             
             array.map(async el=>{
-                if(el.product.id === product[0].id) {
-                    setRepeat(true) 
-                } else {
-                    
+                try {
+                    if(el.product.id === product[0].id) {
+                        setRepeat(true) 
+                    } else {
+                        
+                    }
+                } catch (e) {
+
                 }
+                
             })
+        }
         }
         if(!repeat)verificar()
     })
@@ -63,7 +70,6 @@ const Product = ()=>{
         const urlBasic = `https://codealo-commerce-cms.onrender.com`;
         const header = {"Content-Type" : "application/json"};
         let keyCart = window.localStorage.getItem("id-cart");
-        console.log("tocaste")
 
         if(window.localStorage.getItem("id-cart")) {
  
@@ -71,7 +77,6 @@ const Product = ()=>{
             let resGet = await jsonGet.json();
             let array = [...resGet.products_in_cart];
 
-            console.log("existe")
             if(repeat) {
                 array.map(async el=>{
                     if(el.product.id === product[0].id) {
@@ -90,7 +95,6 @@ const Product = ()=>{
                     }   
                 )
             });
-            console.log("Se repite un dato por eso nomas sumamos", res)
             } else if (!repeat) {
                 await fetch(`${urlBasic}/carts/${keyCart}`, 
                 {
@@ -132,35 +136,37 @@ const Product = ()=>{
     
     return(
         <div>
-            <NavBar/>{
-            product.map(el=>
-                <div>
-                    <div key={el.id + "35"}>
-                        <img  
-                        src={el.img}
-                        alt={el.name + " img"}
-                        ></img>
-                        <figcaption>{el.name}</figcaption>
-                        <h2>{Number.parseFloat(el.price * count).toFixed(2)}</h2>
-                        <p>{el.description}</p>
-                    </div>
-                    <button onClick={()=>
-                        {
-                            setCount(count<1? count = 0:count-1);
-                        }}>-</button>
-                    <p readOnly>{count}</p>
-                    <button onClick={()=>
-                    {
-                        setCount(count+1);
-                    }}>+</button>
-                    <button onClick={()=>
-                    {
-                        comprar();
-                    }
-                    }>Comprar</button>
-                    <button onClick={()=>{navigate("/comprar")}}>Ir a las compras</button>
+            <NavBar/>
+            <div className='container__product'>{
+                product.map(el=>
+                    <div className='box__product'>
+                        <div key={el.id + "35"}>
+                            <img  
+                            src={el.img}
+                            alt={el.name + " img"}
+                            ></img>
+                            <figcaption>{el.name}</figcaption>
+                            <h2>{Number.parseFloat(el.price * count).toFixed(2)}</h2>
+                            <p>{el.description}</p>
+                        </div>
+                        <div className='box_product__box__buttons'>
+                            <button className='box_product__box__buttons--left box_product__box__buttons--both' onClick={()=>{
+                                setCount(count<1? count = 0:count-1);
+                            }}>-</button>
+                            <p className='margin-0' readOnly>{count}</p>
+                            <button className='box_product__box__buttons--right box_product__box__buttons--both' onClick={()=>{
+                                setCount(count+1);
+                            }}>+</button>
+                        </div>
+                        <div className='box_product__box__buttons_shop'>
+                            <button onClick={()=>{
+                                comprar();
+                            }}>Comprar</button>
+                            <button onClick={()=>{navigate("/comprar")}}>Ir a las compras</button>
+                        </div>
                 </div>)    
-            }<Footer/>
+            }</div>
+            <Footer/>
         </div> 
     );  
 }

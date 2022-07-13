@@ -51,32 +51,35 @@ const Categories = ()=>{
     return(
         <>
         <NavBar/>
-            <div className='flex categories'>{
+        <div className='container__categories'>
+            <div className='categories__buttons'>{
                 products2.map(el=>(
                     <button onClick={()=>{
                         navigate(`/productos/categories/${el.slug}`)
                         setLoading2(false)
                         setTimeout(()=>setLoading2(true), 0)
-                    }}>{el.name}</button>))
-                }</div>
-                <div className='categories-test'>
-                <div className="flex products__conteiner">{
-                   products.map(el=>(
+                    }}>{el.name}</button>
+                ))
+            }</div>
+            <div className='categories__products'>
+                <div className="categories__box__cards">{
+                    products.map(el=>(
                         el.products.map(el=>(
                         <div 
                         key={el.id.toString() + "34"} 
-                        className="card__products" >
+                        className="categories__cards" >
                             <NavLink to={"/productos/" + el.slug}>
-                                <img src={urlBasic + el.image.url}></img>
+                                <img className="categories__cards--img" src={urlBasic + el.image.url}></img>
                                 <figcaption>{el.title}</figcaption>
                                 <h2>{el.price}</h2>
-                                <p>{el.description}</p>
+                                <p className='categories__cards--description'>{el.description}</p>
                             </NavLink>
                         </div>
                         ))
                     ))
-            }</div>
+                }</div>
             </div>
+        </div>
         <Footer/>
         </>
     )

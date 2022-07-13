@@ -41,7 +41,7 @@ export default function NavBar(){
                     {
                     !window.localStorage.getItem("USER_AUTH")
                     ? ""
-                    :<button onClick={()=> {
+                    :<button className='session__close' onClick={()=> {
                             window.localStorage.removeItem("USER_AUTH");
                             navigate("/");
                     }}>Cerrar sesion</button>
