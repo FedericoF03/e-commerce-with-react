@@ -83,7 +83,7 @@ const Login = ()=>{
                     name="password"
                     onChange={handleChange}/>
                     <br/>
-                    <input ref={ButtonVis} type="submit" onClick={check}/>
+                    <input className="login__button" ref={ButtonVis} type="submit" onClick={check}/>
                     <p ref={resp} ></p>
                     <p ref={respVoid} ></p>
                 </form>

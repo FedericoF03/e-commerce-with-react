@@ -57,7 +57,7 @@ const Cards=()=>{
                     description={el.description} 
                     slug={el.slug} name={el.name} 
                     img={el.img} 
-                    price={el.price}/>
+                    price={"$" + el.price}/>
                     ))
                     }         
                 </div>

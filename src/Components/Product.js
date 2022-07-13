@@ -7,7 +7,7 @@ import Footer from './Footer';
 
 const Product = ()=>{
     const urlName = useParams();
-    let [count, setCount] = useState(0);
+    let [count, setCount] = useState(1);
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     const [repeat, setRepeat] = useState(false)
@@ -83,7 +83,7 @@ const Product = ()=>{
                         el.quantity = count
                     } 
                 })
-                let res = await fetch(`${urlBasic}/carts/${keyCart}`, 
+                await fetch(`${urlBasic}/carts/${keyCart}`, 
                 {
                 method: "PUT",
                 headers: header,
@@ -145,24 +145,26 @@ const Product = ()=>{
                             src={el.img}
                             alt={el.name + " img"}
                             ></img>
-                            <figcaption>{el.name}</figcaption>
-                            <h2>{Number.parseFloat(el.price * count).toFixed(2)}</h2>
+                            <figcaption>
+                                Nombre: {el.name}
+                            </figcaption>
+                            <h2>{"$" + Number.parseFloat(el.price * count).toFixed(2)}</h2>
                             <p>{el.description}</p>
                         </div>
-                        <div className='box_product__box__buttons'>
-                            <button className='box_product__box__buttons--left box_product__box__buttons--both' onClick={()=>{
-                                setCount(count<1? count = 0:count-1);
+                        <div className='box__product__box__buttons'>
+                            <button className='box__product__box__buttons--left box__product__box__buttons--both' onClick={()=>{
+                                setCount(count<2? count = 1:count-1);
                             }}>-</button>
                             <p className='margin-0' readOnly>{count}</p>
-                            <button className='box_product__box__buttons--right box_product__box__buttons--both' onClick={()=>{
-                                setCount(count+1);
+                            <button className='box__product__box__buttons--right box__product__box__buttons--both' onClick={()=>{
+                                setCount(count>98? count = 1:count+1);
                             }}>+</button>
                         </div>
-                        <div className='box_product__box__buttons_shop'>
-                            <button onClick={()=>{
+                        <div className='box__product__box__button'>
+                            <button className='box__product__button--shop' onClick={()=>{
                                 comprar();
                             }}>Comprar</button>
-                            <button onClick={()=>{navigate("/comprar")}}>Ir a las compras</button>
+                            <button className='box__product__button--go' onClick={()=>{navigate("/comprar")}}>Ir a las compras</button>
                         </div>
                 </div>)    
             }</div>

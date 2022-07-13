@@ -87,7 +87,7 @@ const Register = ()=>{
                     onChange={handleChange}
                     />
                     <br/>
-                    <input type="submit" onClick={check}/>
+                    <input className="register__button" type="submit" onClick={check}/>
                     <p ref={resp} ></p>
                     <p ref={respVoid} ></p>
                 </form>

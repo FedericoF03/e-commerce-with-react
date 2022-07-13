@@ -9,7 +9,7 @@ const ThreeCards = ({img, name, description, price, slug})=>
                 src={img} 
                 alt={"Product-img"}></img>
                 <figcaption>{name}</figcaption>
-                <h2>{price}</h2>
+                <h2 className="three__cards--price">{price}</h2>
                 <p className="three__cards__text--description">{description}</p>
             </NavLink>
         </div>

@@ -1,6 +1,6 @@
 import {NavLink, useNavigate} from 'react-router-dom';
 import React, {useEffect, useState} from 'react'
-import logo from '../Assets/Syntwave-logo.png';
+import logo from '../Assets/png-transparent-computer-icons-source-code-program-optimization-icon-design-symbol-miscellaneous-angle-text-removebg-preview.png';
 import cartLogo from '../Assets/png-clipart-shopping-cart-icon-shopping-cart-black-design-removebg-preview.png'
 
 export default function NavBar(){
@@ -52,8 +52,8 @@ export default function NavBar(){
                 <li>
                     <NavLink to='/comprar'>
                         <div className='box__nav__compra'>
-                            <img className='img__cart' src={cartLogo}></img>
                             <p className='quantity__cart'>{quantityCart}</p>
+                            <img className='img__cart' src={cartLogo}></img> 
                         </div>
                     </NavLink>
                 </li>

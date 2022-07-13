@@ -58,16 +58,18 @@ const Products = ()=>{
             <NavBar/>
             <div className="container__products">
                 <div className="buttons__products__categories">{ products2.map(el=>(
-                        <button onClick={()=>{navigate(`categories/${el.slug}`)}}>{el.name}</button>
+                        <button className="buttons__products__categories--button" onClick={()=>{navigate(`categories/${el.slug}`)}}>{el.name}</button>
                         ))
                 }</div>
                 <div className="box__products">{ products.map(el=>(
                     <div className="products" key={el.id.toString() + "34"}>
                         <NavLink to={"/productos/" + el.link}>
                         <img className="products--img" src={urlBasic + el.img}></img>
-                        <figcaption>{el.name}</figcaption>
-                        <h2>{el.price}</h2>
-                        <p className="products--description">{el.description}</p>
+                        <div className="products__color__text">
+                            <figcaption>{el.name}</figcaption>
+                            <h2>{el.price}</h2>
+                            <p className="products--description">{el.description}</p>
+                        </div>
                         </NavLink>
                     </div>
                     ))

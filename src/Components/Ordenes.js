@@ -47,7 +47,9 @@ import Footer from "./Footer"
                 <div className="box__ordenes">
                     <div className="box_list" key={el.id}>
                         <div className="box_orden_list">
-                            <h2>{el.numeroDeCompra}</h2>
+                            <h2>
+                                N°Orden: {el.numeroDeCompra}
+                            </h2>
                             <p className="price">{"$" + el.total$}</p>
                         </div>
                         {el.products.map(elSub=>(

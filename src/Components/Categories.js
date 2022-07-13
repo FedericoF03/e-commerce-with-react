@@ -54,7 +54,7 @@ const Categories = ()=>{
         <div className='container__categories'>
             <div className='categories__buttons'>{
                 products2.map(el=>(
-                    <button onClick={()=>{
+                    <button className='categories__buttons--button' onClick={()=>{
                         navigate(`/productos/categories/${el.slug}`)
                         setLoading2(false)
                         setTimeout(()=>setLoading2(true), 0)

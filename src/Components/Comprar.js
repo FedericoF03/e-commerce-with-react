@@ -65,8 +65,8 @@ import Footer from "./Footer";
                     <p>No hay compras pendientes</p>
                 </div>
                 :<div className="box__compras__contents">
-                    <p ref={refTextCart}>Usted tiene esto en el carro:</p>
-                    <div className="flex box__compras__contents">{
+                    <p className="box__compras__contents--text" ref={refTextCart}>Usted tiene esto en el carro:</p>
+                    <div className="flex box__compras__contents--cards">{
                         products.map(el=>(
                         <div key={el.id + "35"}>
                             <NavLink to={`/productos/${el.link}`}>
@@ -83,7 +83,7 @@ import Footer from "./Footer";
                         ))
                         
                     }</div>
-                    <button ref={buttonCart} onClick={()=>{
+                    <button className="box__compras__contents--button" ref={buttonCart} onClick={()=>{
                         refTextCart.current.innerHTML = "Procesando compra.."
                         buttonCart.current.setAttribute("disabled", true)
                         createOrden()
