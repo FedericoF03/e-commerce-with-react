@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import React, { useState, useEffect, createRef, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import NavBar from "./Nav";
 import Footer from "./Footer";
 
@@ -10,7 +10,6 @@ import Footer from "./Footer";
     let navigate = useNavigate();
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [large, setLarge] = useState(null)
     
     useEffect(()=>{
         if(!window.localStorage.getItem("USER_AUTH")) {
@@ -32,7 +31,6 @@ import Footer from "./Footer";
                     cant: el.quantity
                 };
                 setProducts(products=>[...products, app]);
-                setLarge(res.products_in_cart.length);
                 
                 setLoading(true);
             })
@@ -44,7 +42,7 @@ import Footer from "./Footer";
     const createOrden= async()=>{
         let userAcc = window.localStorage.getItem("USER_AUTH");
         let idCart = window.localStorage.getItem("id-cart");
-        let res = await fetch(`${urlBasic}/orders`, 
+        await fetch(`${urlBasic}/orders`, 
         {
             method: "POST",
             headers: {
@@ -55,7 +53,6 @@ import Footer from "./Footer";
                         "cart": idCart
                     })
         })
-        let json = await res.json()
         buttonCart.current.removeAttribute("disabled")
     }
     
@@ -91,7 +88,7 @@ import Footer from "./Footer";
                         buttonCart.current.setAttribute("disabled", true)
                         createOrden()
                         window.localStorage.removeItem("id-cart")
-                        setTimeout(()=>navigate("/ordenes"), 0)
+                        setTimeout(()=>navigate("/ordenes"), 2000)
                     }}>Hacer compra</button>
                 </div>
             }</div>

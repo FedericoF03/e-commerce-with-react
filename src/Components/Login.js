@@ -25,10 +25,12 @@ const Login = ()=>{
         if(!forms.username || !forms.password) {
             validation = false;
             respVoid.current.innerHTML = "Alguno de los campos esta vacio, verificar";
+            ButtonVis.current.removeAttribute("disabled");
         }
         if(forms.password.length < 6) {
             resp.current.innerHTML = "El largo de la contraseña es menor a 6";
             validation = false;
+            ButtonVis.current.removeAttribute("disabled");
         }
         if(validation) {
             resp.current.innerHTML = "";

@@ -27,10 +27,15 @@ const Register = ()=>{
             validation = false;
             respVoid.current.innerHTML = "Alguno de los campos esta vacio, verificar";
         }
-        if(forms.password.length < 6) {
-            resp.current.innerHTML = "El largo de la contraseña es menor a 6";
-            validation = false;
+        try {
+            if(forms.password.length < 6 ) {
+                resp.current.innerHTML = "El largo de la contraseña es menor a 6";
+                validation = false;
+            }
+        } catch (e) {
+
         }
+        
         if(validation) {
             resp.current.innerHTML = "";
             respVoid.current.innerHTML = "";
@@ -51,7 +56,7 @@ const Register = ()=>{
                 
         });
         if(res.ok) resp.current.innerHTML = "Se registro correctamente!";
-         else resp.current.innerHTML = "No se registro correctamente";
+         else resp.current.innerHTML = "Cuenta ya registrada o en uso.";
     }
       
     return(

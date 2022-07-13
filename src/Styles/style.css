@@ -38,6 +38,24 @@ a {
     color: rgb(37, 77, 112);
 }
 
+.box__nav__compra {
+    position: relative;
+}
+
+.img__cart {
+    height: 5vh;
+}
+
+.quantity__cart {
+    position: absolute;
+    bottom: 16px;
+    left: 18px;
+    color: #ffffff;
+    font-size: 1.8em;
+    margin: 0;
+    font-weight: 900;
+}
+
 /*Charge */
 
 .container__charge{
@@ -361,7 +379,8 @@ background-color: aqua;
     width: 30vw;
     align-items: center;
     justify-content: center;
-    height: 30vh;
+    min-height: 40vh;
+    max-height: max-content;
 }
 
 /*login*/
@@ -381,7 +400,8 @@ background-color: aqua;
     width: 30vw;
     align-items: center;
     justify-content: center;
-    height: 30vh;
+    min-height: 40vh;
+    max-height: max-content;
 }
 
 /*ordenes*/
