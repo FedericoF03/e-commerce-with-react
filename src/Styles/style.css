@@ -27,6 +27,14 @@ a {
     gap: 20px;
 }
 
+.nav--enlaces {
+    color: #FFFFFF;
+}
+
+.nav--enlaces:hover {
+    color: #141313;
+}
+
 .session__close {
     background-color: transparent;
     border: none;
@@ -192,7 +200,7 @@ background-color: #EEEEEE;
     align-items: center;
     gap: 10px;
     height: 5%;
-    background-color: #0f0909;
+    background-color: #000000;
 }
 
 .buttons__products__categories--button {
@@ -335,6 +343,8 @@ color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #DDDDDD;
+    width: 100vw;
 }
 
 .compras--img {

@@ -44,10 +44,10 @@ export default function NavBar(){
             </div>
             <ul className='nav__box__enlaces'>
                 <li>
-                    <NavLink to='/'>Inicio</NavLink>
+                    <NavLink className='nav--enlaces' to='/'>Inicio</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/productos'>Productos</NavLink>
+                    <NavLink className='nav--enlaces' to='/productos'>Productos</NavLink>
                 </li>
                 <li>
                     <NavLink to='/comprar'>
@@ -61,14 +61,14 @@ export default function NavBar(){
                     window.localStorage.getItem("USER_AUTH")? 
                     "":
                     <li>
-                    <NavLink to='/login'>Login</NavLink>
+                    <NavLink className='nav--enlaces' to='/login'>Login</NavLink>
                     </li>
                 }
                 <li>
-                    <NavLink to='/registrar'>Registrar</NavLink>
+                    <NavLink className='nav--enlaces' to='/registrar'>Registrar</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/ordenes'>Ordenes</NavLink>
+                    <NavLink className='nav--enlaces' to='/ordenes'>Ordenes</NavLink>
                 </li>
                 <li>
                     {
