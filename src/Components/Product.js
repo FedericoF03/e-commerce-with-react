@@ -140,8 +140,9 @@ const Product = ()=>{
             <div className='container__product'>{
                 product.map(el=>
                     <div className='box__product'>
-                        <div key={el.id + "35"}>
-                            <img  
+                        <div className='card__product' key={el.id + "35"}>
+                            <img 
+                            className='product--img' 
                             src={el.img}
                             alt={el.name + " img"}
                             ></img>

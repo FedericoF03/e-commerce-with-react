@@ -15,6 +15,14 @@ a {
     justify-content: space-between;
 }
 
+.menu__burger {
+ display: none;
+}
+
+.second__cart {
+    display: none;
+}
+
 .logo {
     width: 100%;
     height: 100%;
@@ -108,7 +116,6 @@ a {
 
 .container__cards {
     height: 70vh;
-    background-color: aqua;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,7 +168,7 @@ a {
     border: 2px solid rgb(14, 13, 13);
     height: min-content;
     position: relative;
-    bottom: 20px;
+    bottom: 10px;
 }
 
 .three__cards--img {
@@ -232,7 +239,6 @@ color: #ffffff;
     border: 1px solid #A3A3A3;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .products:hover {
@@ -278,7 +284,7 @@ color: #ffffff;
     align-items: center;
     height: 5vh;
     gap: 25px;
-    background-color: #0f0909;
+    background-color: #000000;
 }
 
 .categories__buttons--button{
@@ -324,7 +330,6 @@ color: #ffffff;
 
 .categories__cards--description {
     min-width: 40px;
-    max-width: max-content
 }
 
 
@@ -348,7 +353,11 @@ color: #ffffff;
 }
 
 .compras--img {
-    width: 250px;
+    max-width: 150px
+}
+
+.compras--text {
+    margin: 25px 15px;
 }
 .box__compras__contents {
     overflow-y: auto;
@@ -366,6 +375,7 @@ color: #ffffff;
     margin: 0 25px;
     color: #ffffff;
     background-color: #fc5000;
+    align-items: center;
 }
 
 .box__compras__contents--button {
@@ -400,6 +410,8 @@ color: #ffffff;
     justify-content: center;
     text-align: center;
     align-items: center;
+    width: max-content;
+    height: 85vh;
 }
 
 .box__product__box__buttons {
@@ -416,7 +428,6 @@ color: #ffffff;
 
 .box__product__box__buttons--left {
     background-color: rgba(255, 255, 255, 0);
-    padding: 20px 25px;
     margin-right: 25px;
     border: 0.1px solid #494a4b00;
     font-weight: 900;
@@ -426,7 +437,6 @@ color: #ffffff;
 
 .box__product__box__buttons--right {
     background-color: rgba(255, 255, 255, 0);
-    padding: 20px 25px;
     margin-left: 25px;
     border: 0.1px solid #494a4b00;
     font-weight: 900;
@@ -464,6 +474,7 @@ color: #ffffff;
     background-color: #ff5507;
     border: 1px solid #c0440a ;
     padding: 20px;
+    margin-right: 50px;
     border-radius: 6px;
     box-shadow: -2px 0px 7px 3px rgba(145,145,145,0.5);
     -webkit-box-shadow: -2px 0px 7px 3px rgba(145,145,145,0.5);
@@ -473,6 +484,10 @@ color: #ffffff;
 .box__product__button--go:hover { 
     box-shadow: none;
     color: #ffffff;
+}
+
+.product--img {
+    max-width: 30%;
 }
 
 /*register*/
@@ -554,8 +569,10 @@ color: #ffffff;
     display: flex;
     height: 85vh;
     flex-direction: column;
-    overflow: auto;
+    overflow-y: auto;
     background-color: #e2e1e1;
+    width: 100vw;
+
 }
 
 .box__ordenes {
@@ -570,25 +587,33 @@ color: #ffffff;
     display: flex;
     align-items: center;
     gap: 30px;
-    margin: 5px 50px;
+    margin: 5px 8px 5px 5px;
+    width: 90vw;
+    overflow-x: auto;
 }
 
 .box_orden_list {
     display: flex;
-    min-width: 300px;
+    max-width: 50%;
     justify-content: space-between;
 }
 
+.container__cards__ordenes {
+    gap: 25px;
+    overflow-x: auto;
+    min-width: 50%;
+}
+
 .card__orden {
-    width: max-content;
+    min-width: 250px;
     height: min-content;
     background-color: aliceblue;
 }
 
 .price {
     color: rgba(252, 56, 56, 0.774);
-    margin: 0 20px;
-    font-size: 3em;
+    margin-left: 5px;
+    font-size: 2em;
 }
 
 .orden__img {

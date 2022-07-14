@@ -1,11 +1,12 @@
 import {NavLink, useNavigate} from 'react-router-dom';
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import logo from '../Assets/png-transparent-computer-icons-source-code-program-optimization-icon-design-symbol-miscellaneous-angle-text-removebg-preview.png';
 import cartLogo from '../Assets/png-clipart-shopping-cart-icon-shopping-cart-black-design-removebg-preview.png'
-
+import menuLogo from '../Assets/lines_menu_burger_icon_123889.png'
 export default function NavBar(){
     let urlBasic = "https://codealo-commerce-cms.onrender.com";
     const [quantityCart, setQuantityCart] = useState( window.localStorage.getItem("quantity-cart"))
+    const navMobile = useRef()
     useEffect(()=>{
         
         const compras = async()=>{
@@ -42,14 +43,31 @@ export default function NavBar(){
                     ></img>
                 </NavLink>
             </div>
-            <ul className='nav__box__enlaces'>
+            <div className='flex nav__button--mobile'>
+                <div className='second__cart'>
+                    <NavLink to='/comprar'>
+                        <div className='box__nav__compra'>
+                            <p className='quantity__cart'>{quantityCart}</p>
+                            <img className='img__cart' src={cartLogo}></img> 
+                        </div>
+                    </NavLink>
+                </div>
+                <div>
+                    <img className='menu__burger' src={menuLogo} onClick={()=>{
+                            if(navMobile.current.style.clipPath == "inset(0px)") 
+                                navMobile.current.style.clipPath = "inset(0 0 100% 0)"
+                             else navMobile.current.style.clipPath = "inset(0px)"
+                    }}></img>
+                </div>
+            </div>
+            <ul ref={navMobile} className='nav__box__enlaces'>
                 <li>
                     <NavLink className='nav--enlaces' to='/'>Inicio</NavLink>
                 </li>
                 <li>
                     <NavLink className='nav--enlaces' to='/productos'>Productos</NavLink>
                 </li>
-                <li>
+                <li className='cart--list'>
                     <NavLink to='/comprar'>
                         <div className='box__nav__compra'>
                             <p className='quantity__cart'>{quantityCart}</p>

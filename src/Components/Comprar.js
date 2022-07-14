@@ -78,7 +78,7 @@ import Footer from "./Footer";
                             </NavLink>
                             <figcaption>{el.name}</figcaption>
                             <h2>{"$" + Number.parseFloat(el.price * el.cant).toFixed(2)}</h2>
-                            <p>{`${el.cant} unidades en el carro`}</p>
+                            <p className='compras--text'>{`${el.cant} unidades en el carro`}</p>
                         </div>
                         ))
                         

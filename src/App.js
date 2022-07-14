@@ -2,6 +2,8 @@ import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import StartComp from "./Components/Start"
 import './Styles/style.css'
+import './Styles/StyleMobile.css'
+import './Styles/StyleTablet.css'
 import Product from './Components/Product'
 import Products from './Components/Products'
 import Categories from './Components/Categories'

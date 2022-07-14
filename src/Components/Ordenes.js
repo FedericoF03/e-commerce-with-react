@@ -52,14 +52,16 @@ import Footer from "./Footer"
                             </h2>
                             <p className="price">{"$" + el.total$}</p>
                         </div>
-                        {el.products.map(elSub=>(
-                        <div className="card__orden"  key={elSub.product.id} slug={elSub.product.slug}>
-                            <p>{elSub.product.title}</p>
-                            <p>{"$" + Number.parseFloat(elSub.product.price * elSub.quantity).toFixed(2)}</p>
-                            <img className="orden__img" src={urlBasic + elSub.product.image.url}></img>
-                            <p>{elSub.quantity + " Unidades"}</p> 
+                        <div className="flex container__cards__ordenes">
+                            {el.products.map(elSub=>(
+                            <div className="card__orden"  key={elSub.product.id} slug={elSub.product.slug}>
+                                <p>{elSub.product.title}</p>
+                                <p>{"$" + Number.parseFloat(elSub.product.price * elSub.quantity).toFixed(2)}</p>
+                                <img className="orden__img" src={urlBasic + elSub.product.image.url}></img>
+                                <p>{elSub.quantity + " Unidades"}</p> 
+                            </div>
+                            ))}
                         </div>
-                        ))}
                     </div>
                 </div>)) 
             }</div>
